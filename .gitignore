@@ -1,2 +1,9 @@
 .idea/
 __pycatch__/
+.git/
+*.xml
+*.txt
+*.html
+*.ini
+*.[oa]
+*~
