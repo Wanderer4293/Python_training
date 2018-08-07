@@ -36,7 +36,7 @@ class User:
     @property
     def binary_id(self):
         if not self._binary_id:
-            self._binary_id = config.number
+            self._binary_id = self.config.number
         return self._binary_id
 
     @binary_id.setter
