@@ -7,7 +7,6 @@ class ConfigHandler:
         with open(file_name, 'r') as cf:
             config_file = json.load(cf)
 
-        self.number = config_file['number']
         self.flag = config_file['flag']
 
 
