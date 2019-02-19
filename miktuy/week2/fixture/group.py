@@ -15,9 +15,9 @@ class GroupHelper:
         # init group creation
         driver.find_element_by_name("new").click()
         # fill group firm
-        Field(driver, 'group_name').fill_with(group.name)
-        Field(driver, 'group_header').fill_with(group.header)
-        Field(driver, 'group_footer').fill_with(group.footer)
+        Field('group_name').fill_with(group.name)
+        Field('group_header').fill_with(group.header)
+        Field('group_footer').fill_with(group.footer)
         # submit group creation
         driver.find_element_by_name("submit").click()
         self.return_to_groups_page()

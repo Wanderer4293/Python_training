@@ -1,6 +1,9 @@
+from libs.driver import Driver
+
+
 class WebElement:
-    def __init__(self, driver, locator):
-        self.driver = driver
+    def __init__(self, locator):
+        self.driver = Driver()
         self.locator = locator
 
 

@@ -10,10 +10,10 @@ class EntryHelper:
         # open add new page
         driver.find_element_by_link_text("add new").click()
         # fill new entry firm
-        Field(driver, 'firstname').fill_with(entry.firstname)
-        Field(driver, 'nickname').fill_with(entry.nickname)
-        Field(driver, 'middlename').fill_with(entry.middlename)
-        Field(driver, 'email').fill_with(entry.email)
+        Field('firstname').fill_with(entry.firstname)
+        Field('nickname').fill_with(entry.nickname)
+        Field('middlename').fill_with(entry.middlename)
+        Field('email').fill_with(entry.email)
         # submit entry creation
         driver.find_element_by_xpath(
             "(.//*[normalize-space(text()) and normalize-space(.)='Notes:'])[1]/following::input[1]").click()
