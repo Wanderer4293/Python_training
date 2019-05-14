@@ -6,6 +6,8 @@ from selenium.webdriver.support.ui import Select
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
 import unittest, time, re
+from Group import Group
+
 
 class UntitledTestCase(unittest.TestCase):
     def setUp(self):
@@ -16,22 +18,36 @@ class UntitledTestCase(unittest.TestCase):
         self.accept_next_alert = True
     
     def test_untitled_test_case(self):
-        driver = self.driver
-        driver.get("http://localhost:81/addressbook/group.php")
-        driver.find_element_by_name("user").clear()
-        driver.find_element_by_name("user").send_keys("admin")
-        driver.find_element_by_name("pass").click()
-        driver.find_element_by_name("pass").clear()
-        driver.find_element_by_name("pass").send_keys("secret")
-        driver.find_element_by_xpath("(.//*[normalize-space(text()) and normalize-space(.)='Password:'])[1]/following::input[2]").click()
+        driver = self.Login(Group(username="admin", password="secret"))
+        self.Add_Group(driver)
+        self.Logout(driver)
+        time.sleep(5)
+
+    def Logout(self, driver):
+        driver.find_element_by_link_text("Logout").click()
+
+    def Add_Group(self, driver):
+        driver.find_element_by_link_text("groups").click()
         driver.find_element_by_name("new").click()
         driver.find_element_by_name("group_name").click()
         driver.find_element_by_name("group_name").clear()
-        driver.find_element_by_name("group_name").send_keys("555")
+        driver.find_element_by_name("group_name").send_keys("123444")
         driver.find_element_by_name("submit").click()
         driver.find_element_by_link_text("group page").click()
-        driver.find_element_by_link_text("Logout").click()
-    
+
+    def Login(self, group):
+        driver = self.driver
+        driver.get("http://localhost:81/addressbook/index.php")
+        driver.find_element_by_name("user").click()
+        driver.find_element_by_name("user").clear()
+        driver.find_element_by_name("user").send_keys(group.username)
+        driver.find_element_by_name("pass").click()
+        driver.find_element_by_name("pass").clear()
+        driver.find_element_by_name("pass").send_keys(group.password)
+        driver.find_element_by_xpath(
+            "(.//*[normalize-space(text()) and normalize-space(.)='Password:'])[1]/following::input[2]").click()
+        return driver
+
     def is_element_present(self, how, what):
         try: self.driver.find_element(by=how, value=what)
         except NoSuchElementException as e: return False
