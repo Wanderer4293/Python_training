@@ -16,7 +16,6 @@ class UntitledTestCase(unittest.TestCase):
     def setUp(self):
         self.driver = webdriver.Firefox()
         self.driver.implicitly_wait(30)
-        self.base_url = "https://www.katalon.com/"
         self.verificationErrors = []
         self.accept_next_alert = True
 
