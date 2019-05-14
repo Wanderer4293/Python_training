@@ -1,4 +1,4 @@
-class Parameters:
+class GroupParameters:
     def __init__(self, GroupName, GroupHeader, GroupFooter):
         self.GroupName = GroupName
         self.GroupHeader = GroupHeader
