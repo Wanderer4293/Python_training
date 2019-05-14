@@ -103,6 +103,7 @@ class UntitledTestCase(unittest.TestCase):
         driver.find_element_by_name("homepage").clear()
         driver.find_element_by_name("homepage").send_keys(contactParameters.HomePage)
 
+        Select(driver.find_element_by_name("bday")).select_by_index("5")
         Select(driver.find_element_by_name("bmonth")).select_by_index("10")
         driver.find_element_by_name("byear").click()
         driver.find_element_by_name("byear").clear()
