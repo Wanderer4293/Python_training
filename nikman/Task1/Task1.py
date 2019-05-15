@@ -19,7 +19,15 @@ class UntitledTestCase(unittest.TestCase):
         self.verificationErrors = []
         self.accept_next_alert = True
 
-    def test_untitled_test_case(self):
+
+'''
+   Тестовый сценарий:
+    1. Залогиниться
+    2. Создать группу
+    3. Создать контакт
+    4. Разлогиниться 
+'''
+def test_untitled_test_case(self):
         self.Login(Credentials(Username="admin", Password="secret"))
         self.AddGroup(self.driver, GroupParameters(GroupName=random.randint(1, 1000000),
                                                GroupHeader=random.randint(1, 1000000),
