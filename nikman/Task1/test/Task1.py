@@ -6,10 +6,10 @@ from selenium.webdriver.support.ui import Select
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
 import unittest, time, re
-from Credentials import Credentials
-from GroupParameters import GroupParameters
-from ContactParameters import ContactParameters
-from Application import Application
+from Task1.model.Credentials import Credentials
+from Task1.model.GroupParameters import GroupParameters
+from Task1.model.ContactParameters import ContactParameters
+from Task1.fixture.Application import Application
 import random
 import pytest
 
