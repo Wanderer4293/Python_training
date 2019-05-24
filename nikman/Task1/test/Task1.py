@@ -20,12 +20,12 @@ def app(request):
     return fixture
 
 def test_untitled_test_case(app):
-    app.Login(Credentials(Username="admin", Password="secret"))
-    app.AddGroup(GroupParameters(GroupName=random.randint(1, 1000000),
+    app.session.Login(Credentials(Username="admin", Password="secret"))
+    app.group.AddGroup(GroupParameters(GroupName=random.randint(1, 1000000),
                                          GroupHeader=random.randint(1, 1000000),
                                          GroupFooter=random.randint(1, 1000000)))
-    app.AddContact(ContactParameters())
-    app.Logout()
+    app.contact.AddContact(ContactParameters())
+    app.session.Logout()
     time.sleep(5)
 
     def is_element_present(self, how, what):
