@@ -25,6 +25,10 @@ def test_untitled_test_case(app):
                                          GroupHeader=random.randint(1, 1000000),
                                          GroupFooter=random.randint(1, 1000000)))
     app.contact.AddContact(ContactParameters())
+    app.contact.ModifyContact()
+    app.contact.DeleteContact()
+    app.group.ModifyGroup()
+    app.group.DeleteGroup()
     app.session.Logout()
     time.sleep(5)
 

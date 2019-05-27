@@ -1,4 +1,5 @@
 from selenium.webdriver.support.ui import Select
+import random
 
 class ContactHelper:
 
@@ -61,7 +62,7 @@ class ContactHelper:
         driver.find_element_by_name("homepage").clear()
         driver.find_element_by_name("homepage").send_keys(contactParameters.HomePage)
 
-        Select(driver.find_element_by_name("bday")).select_by_index("5")
+        Select(driver.find_element_by_name("bday")).select_by_value("5")
         Select(driver.find_element_by_name("bmonth")).select_by_index("10")
         driver.find_element_by_name("byear").click()
         driver.find_element_by_name("byear").clear()
@@ -73,4 +74,22 @@ class ContactHelper:
         driver.find_element_by_name("ayear").clear()
         driver.find_element_by_name("ayear").send_keys("1991")
 
+        Select(driver.find_element_by_name("new_group")).select_by_index(random.randint(1, 10))
+
         driver.find_element_by_name("submit").click()
+
+    def ModifyContact(self):
+        driver = self.app.driver
+        driver.find_element_by_xpath('//*[@id="maintable"]/tbody/tr[2]/td[8]/a/img').click()
+        driver.find_element_by_name("firstname").clear()
+        driver.find_element_by_name("firstname").send_keys("1111111")
+        driver.find_element_by_name("update").click()
+
+
+    def DeleteContact(self):
+
+        driver = self.app.driver
+        driver.find_element_by_id("MassCB").click()
+        driver.find_element_by_css_selector("#content > form:nth-child(10) > "
+                                            "div:nth-child(8) > input[type=button]").click()
+        driver.switch_to_alert().accept()
